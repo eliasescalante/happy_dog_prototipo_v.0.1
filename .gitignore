@@ -1,0 +1,20 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific files
+import-*.cfg
+export_presets.cfg
+.editor_settings-*.cfg
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Log files
+*.log

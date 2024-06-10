@@ -1,0 +1,127 @@
+[gd_scene load_steps=15 format=3 uid="uid://d4de74g6q53n5"]
+
+[ext_resource type="Script" path="res://init/stage_init.gd" id="1_6ruc4"]
+[ext_resource type="PackedScene" uid="uid://bmholj4fqgpdl" path="res://dog_init_animation/dog_init.tscn" id="2_88dgr"]
+[ext_resource type="Texture2D" uid="uid://w6sq43aqmjlc" path="res://assets/PNG/summer8/Summer8.png" id="2_qgkoj"]
+[ext_resource type="AudioStream" uid="uid://cjwnq2fyd6yb6" path="res://assets/audio/intro_2.mp3" id="3_xev3h"]
+
+[sub_resource type="Theme" id="Theme_iugql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y85bf"]
+bg_color = Color(0.117647, 0.686275, 0.666667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1idm"]
+bg_color = Color(0.6, 0.0431373, 0.6, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smkic"]
+bg_color = Color(0.6, 0.960784, 0.6, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_dlh5x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxjik"]
+bg_color = Color(0.117647, 0.686275, 0.666667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4i3f"]
+bg_color = Color(0.6, 0.0745098, 0.6, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bjk1"]
+bg_color = Color(0.6, 0.6, 0.231373, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_jswsa"]
+font_size = 103
+font_color = Color(0.827451, 0.184314, 0.741176, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e3cyx"]
+font_size = 20
+font_color = Color(0.811765, 0.0588235, 0.796078, 1)
+
+[node name="stage_init" type="Node2D"]
+script = ExtResource("1_6ruc4")
+
+[node name="fondo_inicio" type="Sprite2D" parent="."]
+position = Vector2(578.5, 334.5)
+scale = Vector2(0.516059, 0.540895)
+texture = ExtResource("2_qgkoj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xev3h")
+autoplay = true
+
+[node name="Boton_start" type="Button" parent="."]
+offset_left = 434.0
+offset_top = 357.0
+offset_right = 707.0
+offset_bottom = 417.0
+theme = SubResource("Theme_iugql")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y85bf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n1idm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_smkic")
+action_mode = 0
+text = "START"
+
+[node name="Boton_quick" type="Button" parent="."]
+offset_left = 438.0
+offset_top = 524.0
+offset_right = 705.0
+offset_bottom = 586.0
+theme = SubResource("Theme_dlh5x")
+theme_override_colors/icon_normal_color = Color(0, 0, 0.956863, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wxjik")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g4i3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4bjk1")
+text = "QUIT"
+
+[node name="Boton_shop" type="Button" parent="."]
+offset_left = 437.0
+offset_top = 435.0
+offset_right = 704.0
+offset_bottom = 497.0
+theme = SubResource("Theme_dlh5x")
+theme_override_colors/icon_normal_color = Color(0, 0, 0.956863, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wxjik")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g4i3f")
+text = "SHOP"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 99.0
+offset_right = 894.0
+offset_bottom = 277.0
+text = "HAPPY DOG"
+label_settings = SubResource("LabelSettings_jswsa")
+horizontal_alignment = 1
+
+[node name="dog_init" parent="." instance=ExtResource("2_88dgr")]
+position = Vector2(588, 281)
+
+[node name="title_ferchi" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 617.0
+offset_right = 344.0
+offset_bottom = 645.0
+text = "Game Design: Fernanda Di Zoccolo"
+label_settings = SubResource("LabelSettings_e3cyx")

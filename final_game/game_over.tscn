@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctkyauebp0q8u"]
+
+[ext_resource type="Texture2D" uid="uid://bvijl4h3cgrnb" path="res://assets/PNG/summer 3/Summer3.png" id="1_31x8i"]
+[ext_resource type="Script" path="res://final_game/game_over.gd" id="1_rv7xg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f22u7"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_ewdyh"]
+font_size = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vixf"]
+bg_color = Color(0.0142684, 0.680165, 0.728012, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orimn"]
+bg_color = Color(0.6, 0.101961, 0.6, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37kwq"]
+bg_color = Color(0.234096, 0.702048, 0.422108, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="game_over" type="Node2D"]
+script = ExtResource("1_rv7xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(579, 331)
+scale = Vector2(0.518229, 0.53858)
+texture = ExtResource("1_31x8i")
+
+[node name="titulo" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 210.0
+offset_right = 878.0
+offset_bottom = 483.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_f22u7")
+
+[node name="PuntajeLabel" type="Label" parent="."]
+offset_left = 408.0
+offset_top = 342.0
+offset_right = 544.0
+offset_bottom = 443.0
+text = "0"
+label_settings = SubResource("LabelSettings_ewdyh")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="musica_final" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+
+[node name="terminar" type="Button" parent="."]
+offset_left = 494.0
+offset_top = 467.0
+offset_right = 664.0
+offset_bottom = 527.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2vixf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_orimn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_37kwq")
+text = "QUIT"

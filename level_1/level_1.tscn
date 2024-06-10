@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://7pks0cdeludh"]
+
+[ext_resource type="Texture2D" uid="uid://bgbknmhhgnkky" path="res://assets/PNG/summer7/Summer7.png" id="1_ldyd2"]
+[ext_resource type="Script" path="res://level_1/level_1.gd" id="1_saqpx"]
+[ext_resource type="PackedScene" uid="uid://dpedlvmtn61cj" path="res://character/character_dog.tscn" id="2_fx4y8"]
+[ext_resource type="AudioStream" uid="uid://ygogpj30fmrm" path="res://assets/audio/level.mp3" id="4_qbwv4"]
+[ext_resource type="PackedScene" uid="uid://mu2ipirqhq7" path="res://hose/hose.tscn" id="5_57rhs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tiije"]
+bg_color = Color(0.0503645, 0.608406, 0.329155, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b55fe"]
+bg_color = Color(0.945098, 0.0156863, 0.0901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5kq4"]
+bg_color = Color(0.0992567, 0.654322, 0.858, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="SystemFont" id="SystemFont_es1e7"]
+font_italic = true
+allow_system_fallback = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_1r5sc"]
+font = SubResource("SystemFont_es1e7")
+font_size = 22
+font_color = Color(0.415686, 0.00784314, 0.376471, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ia760"]
+font_size = 21
+font_color = Color(0.414064, 0.00937943, 0.377602, 1)
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_saqpx")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(574, 321)
+scale = Vector2(0.509115, 0.525849)
+texture = ExtResource("1_ldyd2")
+
+[node name="character_dog" parent="." instance=ExtResource("2_fx4y8")]
+position = Vector2(545, 438)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qbwv4")
+autoplay = true
+
+[node name="hose" parent="." instance=ExtResource("5_57rhs")]
+position = Vector2(542, 617)
+
+[node name="BarraEnergia" type="ProgressBar" parent="."]
+offset_left = 453.0
+offset_top = 23.0
+offset_right = 692.0
+offset_bottom = 66.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_tiije")
+value = 100.0
+
+[node name="BarraAburrimiento" type="ProgressBar" parent="."]
+offset_left = 454.0
+offset_top = 86.0
+offset_right = 693.0
+offset_bottom = 129.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_b55fe")
+
+[node name="BarraAgua" type="ProgressBar" parent="."]
+offset_left = 24.0
+offset_top = 448.0
+offset_right = 71.0
+offset_bottom = 639.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_q5kq4")
+value = 100.0
+fill_mode = 3
+
+[node name="titulo_energia" type="Label" parent="."]
+offset_left = 343.0
+offset_top = 29.0
+offset_right = 436.0
+offset_bottom = 66.0
+text = "ENERGÍA"
+label_settings = SubResource("LabelSettings_1r5sc")
+
+[node name="titulo_aburrimiento" type="Label" parent="."]
+offset_left = 284.0
+offset_top = 92.0
+offset_right = 442.0
+offset_bottom = 128.0
+text = "ABURRIMIENTO"
+label_settings = SubResource("LabelSettings_ia760")
