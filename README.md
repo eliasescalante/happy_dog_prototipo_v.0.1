@@ -1,9 +1,9 @@
 # HAPPY DOG
-DEMO desarrollado con GODOT engine 4
+# DEMO desarrollado con GODOT engine 4
 
 ----
 
-#Game designer : Fernanda Di Zoccolo
+# Game designer : Fernanda Di Zoccolo
 # DEV : Elias Escalante
 
 ----
