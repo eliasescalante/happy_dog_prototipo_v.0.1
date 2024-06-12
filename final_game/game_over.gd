@@ -14,7 +14,7 @@ func _ready():
 	pass
 # Esta función se llama para configurar el puntaje
 func set_puntaje(puntaje: int):
-	puntaje_label.text = "Puntaje: " + str(puntaje)
+	puntaje_label.text = "SCORE: " + str(puntaje)
 	# Inicia el temporizador para cerrar el juego después de 5 segundos
 	
 

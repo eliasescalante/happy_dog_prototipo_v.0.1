@@ -10,7 +10,7 @@ var tiempo_sin_movimiento: float = 0.0
 const TIEMPO_SIN_MOVIMIENTO_MAXIMO: float = 5.0  # Tiempo máximo sin movimiento antes de que la barra de aburrimiento comience a llenarse
 const AGUA_DECREMENTO: float = 10.0  # Valor que se decrementa de la barra de agua cada vez que se presiona la barra espaciadora
 const ENERGIA_DECREMENTO_RAPIDO: float = 10.0  # Valor que se decrementa de la barra de energía al moverse
-const ENERGIA_INCREMENTO: float = 1.0  # Valor que se incrementa de la barra de energía al estar inactivo
+const ENERGIA_INCREMENTO: float = 2.0  # Valor que se incrementa de la barra de energía al estar inactivo
 
 var juego_en_curso: bool = true  # Bandera para indicar si el juego está en curso
 
@@ -40,14 +40,14 @@ func _ready():
 # Función para actualizar la barra de energía cuando el perro se mueve
 func _on_perro_se_movio(energia: float):
 	if juego_en_curso:
-		barra_energia.value = min(100, max(0, barra_energia.value - ENERGIA_DECREMENTO_RAPIDO))
-		tiempo_sin_movimiento = 0.0
-		
-		_decrementar_aburrimiento()
-		
-		# Verificar si la barra de energía llegó al mínimo (perro cansado)
-		if barra_energia.value <= 1:
+		# Verificar si la barra de energía ya está en cero
+		if barra_energia.value == 0:
 			_fin_del_juego("El perro está cansado. ¡Perdiste!")
+		else:
+			# Si la barra de energía no está en cero, decrementarla
+			barra_energia.value = min(100, max(0, barra_energia.value - ENERGIA_DECREMENTO_RAPIDO))
+			tiempo_sin_movimiento = 0.0
+			_decrementar_aburrimiento()
 
 # Función para manejar el incremento del aburrimiento y energía cuando el perro está inactivo
 func _on_perro_inactivo():
@@ -64,7 +64,7 @@ func _on_perro_inactivo():
 			barra_aburrimiento.value += 1
 		
 		# Verificar si la barra de aburrimiento llegó al máximo (perro aburrido)
-		if barra_aburrimiento.value >= 98:
+		if barra_aburrimiento.value == 100:
 			_fin_del_juego("El perro está aburrido. ¡Perdiste!")
 
 # Función para finalizar el juego con un mensaje
@@ -108,5 +108,5 @@ func _process(delta):
 				character_dog.animation.play("attack_derecha")  # Reproducir animación de
 		
 		# Verificar si la barra de agua llegó a 0
-		if barra_agua.value <= 0:
+		if barra_agua.value == 0:
 			_fin_del_juego("La barra de agua se ha agotado. ¡Perdiste!")

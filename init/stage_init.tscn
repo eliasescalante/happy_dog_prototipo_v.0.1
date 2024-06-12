@@ -1,9 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://d4de74g6q53n5"]
+[gd_scene load_steps=17 format=3 uid="uid://d4de74g6q53n5"]
 
 [ext_resource type="Script" path="res://init/stage_init.gd" id="1_6ruc4"]
 [ext_resource type="PackedScene" uid="uid://bmholj4fqgpdl" path="res://dog_init_animation/dog_init.tscn" id="2_88dgr"]
 [ext_resource type="Texture2D" uid="uid://w6sq43aqmjlc" path="res://assets/PNG/summer8/Summer8.png" id="2_qgkoj"]
 [ext_resource type="AudioStream" uid="uid://cjwnq2fyd6yb6" path="res://assets/audio/intro_2.mp3" id="3_xev3h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tcbxb"]
+font_size = 69
+font_color = Color(0.400384, 0.000111182, 0.400812, 1)
 
 [sub_resource type="Theme" id="Theme_iugql"]
 
@@ -56,8 +60,12 @@ font_size = 103
 font_color = Color(0.827451, 0.184314, 0.741176, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e3cyx"]
-font_size = 20
-font_color = Color(0.811765, 0.0588235, 0.796078, 1)
+font_size = 40
+font_color = Color(0.306495, 0.00219529, 0.300092, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sp7cy"]
+font_size = 27
+font_color = Color(0.310859, 6.58188e-05, 0.311073, 1)
 
 [node name="stage_init" type="Node2D"]
 script = ExtResource("1_6ruc4")
@@ -66,6 +74,14 @@ script = ExtResource("1_6ruc4")
 position = Vector2(578.5, 334.5)
 scale = Vector2(0.516059, 0.540895)
 texture = ExtResource("2_qgkoj")
+
+[node name="Label" type="Label" parent="fondo_inicio"]
+offset_left = -223.812
+offset_top = -331.857
+offset_right = 133.188
+offset_bottom = -255.857
+text = "UTN.BA | 2024"
+label_settings = SubResource("LabelSettings_tcbxb")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xev3h")
@@ -107,10 +123,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_g4i3f")
 text = "SHOP"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 280.0
-offset_top = 99.0
-offset_right = 894.0
-offset_bottom = 277.0
+offset_left = 286.0
+offset_top = -5.0
+offset_right = 900.0
+offset_bottom = 173.0
 text = "HAPPY DOG"
 label_settings = SubResource("LabelSettings_jswsa")
 horizontal_alignment = 1
@@ -119,9 +135,17 @@ horizontal_alignment = 1
 position = Vector2(588, 281)
 
 [node name="title_ferchi" type="Label" parent="."]
-offset_left = 9.0
-offset_top = 617.0
-offset_right = 344.0
-offset_bottom = 645.0
-text = "Game Design: Fernanda Di Zoccolo"
+offset_left = 254.0
+offset_top = 216.0
+offset_right = 976.0
+offset_bottom = 271.0
+text = "Game Designer: Di Zoccolo, Fernanda "
 label_settings = SubResource("LabelSettings_e3cyx")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 121.0
+offset_right = 1261.0
+offset_bottom = 174.0
+text = "Prototipo desarrollado para la diplomatura \"Experto Universitario de Game Design\""
+label_settings = SubResource("LabelSettings_sp7cy")

@@ -6,6 +6,9 @@ var moving : bool = false
 var current_idle = "idle"
 @onready var valid_position = position
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
+@onready var ray_derecha : RayCast2D = $RayCasts/derecha
+@onready var ray_izquierda : RayCast2D = $RayCasts/izquierda
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -16,7 +19,7 @@ func _process(delta):
 	var water = Input.is_action_just_pressed("water")
 			
 	if direction && not moving:
-		moving = true
+		
 		move_me(direction)
 	if water:
 		current_idle = "water"
@@ -29,14 +32,15 @@ func move_me(direction):
 	
 	var next_position : Vector2
 	
-	if direction.x < 0:
+	if direction.x < 0 && !ray_izquierda.is_colliding():
 		next_position = position + Vector2(-PIXEL, 0)
 		move_by_tween(next_position)
-	elif direction.x > 0:
+	elif direction.x > 0 && !ray_derecha.is_colliding():
 		next_position = position + Vector2(PIXEL, 0)
 		move_by_tween(next_position)
 
 func move_by_tween(next_position: Vector2):
+	moving = true
 	valid_position = next_position
 	tween = create_tween()
 	tween.tween_property(self, "position", next_position, 0.2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dpedlvmtn61cj"]
+[gd_scene load_steps=33 format=3 uid="uid://dpedlvmtn61cj"]
 
 [ext_resource type="Texture2D" uid="uid://cr1yi4ywjgeot" path="res://assets/img/2 Dog 2/Attack.png" id="1_85qox"]
 [ext_resource type="Script" path="res://character/character_dog.gd" id="1_mo1jj"]
@@ -203,7 +203,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="character_dog" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5uh8"]
+size = Vector2(129, 110)
+
+[node name="character_dog" type="CharacterBody2D"]
 script = ExtResource("1_mo1jj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -211,3 +214,15 @@ position = Vector2(-0.999996, -1)
 scale = Vector2(3.75, 3.90625)
 sprite_frames = SubResource("SpriteFrames_v0dne")
 animation = &"attack_derecha"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-14, 46)
+shape = SubResource("RectangleShape2D_y5uh8")
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="derecha" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(64, 0)
+
+[node name="izquierda" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(-96, 0)

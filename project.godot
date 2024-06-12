@@ -15,6 +15,10 @@ run/main_scene="res://init/stage_init.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 move_left={

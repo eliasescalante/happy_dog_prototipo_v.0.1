@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://mu2ipirqhq7"]
+[gd_scene load_steps=7 format=3 uid="uid://mu2ipirqhq7"]
 
 [ext_resource type="Texture2D" uid="uid://cw1t6icktedkx" path="res://assets/img/canio.png" id="1_4rfit"]
 [ext_resource type="Script" path="res://hose/hose.gd" id="1_ur7vh"]
@@ -33,7 +33,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="hose" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0os2p"]
+size = Vector2(38, 79)
+
+[node name="hose" type="CharacterBody2D"]
 script = ExtResource("1_ur7vh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -41,3 +44,17 @@ position = Vector2(-1, 1.00001)
 scale = Vector2(0.295082, 0.578431)
 sprite_frames = SubResource("SpriteFrames_4kqxr")
 animation = &"water"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 10)
+shape = SubResource("RectangleShape2D_0os2p")
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="derecha" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(58, -1)
+collide_with_areas = true
+
+[node name="izquierda" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(-59, -1)
+collide_with_areas = true
