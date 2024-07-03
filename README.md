@@ -10,6 +10,8 @@
 - !Hay que entretener al perrito¡, hazlo jugar con agua pero ojo si se cansa perdes y si se agota el agua tambien ahhh y que no se aburra XD
 ----
 
+## Link al prototipo: https://elias-escalante.itch.io/happy-dog-demo
+
 preview
 
 ![Texto alternativo](https://github.com/eliasescalante/happy_dog/blob/main/capture_happy_dog.JPG)
