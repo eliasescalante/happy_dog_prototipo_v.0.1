@@ -6,6 +6,8 @@
 # Game designer : Fernanda Di Zoccolo
 # DEV : Elias Escalante
 
+----
+
 - Se presenta el diseño creado por la game design. es un prototipo el cual dentro de poco se lanzara la demo completa.
 - !Hay que entretener al perrito¡, hazlo jugar con agua pero ojo si se cansa perdes y si se agota el agua tambien ahhh y que no se aburra XD
 ----
